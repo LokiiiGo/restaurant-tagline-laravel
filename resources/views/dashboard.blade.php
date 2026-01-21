@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<title>Restaurant Tagline</title>
 
 <x-app-layout>
     <div class="py-12 p-2">
