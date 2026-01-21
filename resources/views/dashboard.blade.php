@@ -41,15 +41,15 @@
                         @endphp
                     </section>
                 </div>
-
-                <div class="border-black border-2 border-solid w-2/2 mt-10"></div>
+                <div class="border-black border-4 w-2/2 mt-50"></div>
+                <div class="border-black border-4 w-2/2 mt-50"></div>
             </div>
 
             {{-- Categoria cardápios --}}
             <div id="cardapios">
                 <div class="mt-10 flex items-center justify-center">
                     <section id="cardapios" class="menu-section">
-                        <h2 class="mb-10 text-2xl text-white text-center">Cardápios do Restaurant Tagline</h2>
+                        <h2 class="mb-10 text-4xl text-white text-center">Cardápios do Restaurant Tagline</h2>
 
                         <div class="menu-category">
                             <h3>Comidas Deliciosas!</h3>
@@ -202,22 +202,23 @@
                 </div>
             </div>
 
-            <div class="border-black border-2 border-solid w-2/2 mt-10"></div>
+            <div class="border-black border-2 border-solid w-2/2 mt-30"></div>
 
             {{-- Seção redes sociais --}}
-            <div class="text-center" id="redes-sociais">
+            <div class="text-center mb-20" id="redes-sociais">
+                <p class="mt-20 text-4xl">Redes sociais</p>
                 <section class="text-center mt-10">
                     <a href="#" class="m-5 border-4"><button
                             class="bg-white p-6  rounded-2xl">Instagram</button></a>
                     <a href="#" class="m-5 border-4"><button
                             class="bg-white p-6 rounded-2xl">Facebook</button></a>
-                    <a href="#" class="m-5 border"><button
-                            class="bg-white p-6 rounded-2xl">TikTok</button></a>
+                    <a href="#" class="m-5 border"><button class="bg-white p-6 rounded-2xl">TikTok</button></a>
                     <a href="#" class="m-5 border"><button
                             class="bg-white p-6 rounded-2xl">Questionario</button></a>
                 </section>
             </div>
 
-            <footer class="bg-[#232323] text-2xl p-10 rounded-xl text-white text-center mt-10">&copy; <?php echo date('Y'); ?> Restaurant Tagline</footer>
+            <footer class="bg-[#232323] text-2xl p-10 rounded-xl text-white text-center">&copy;
+                <?php echo date('Y'); ?> Restaurant Tagline</footer>
         </div>
 </x-app-layout>
