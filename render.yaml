@@ -2,7 +2,7 @@ services:
   # Serviço Web (Laravel/PHP)
   - type: web
     name: restaurant-tagline
-    runtime: php # Alterado para PHP para que ele execute o buildCommand
+    runtime: docker # Alterado para PHP para que ele execute o buildCommand
     buildCommand: composer install && npm install && npm run build
     startCommand: php artisan serve
     envVars:
@@ -27,7 +27,8 @@ services:
   # Serviço de Banco de Dados (MySQL)
   - type: pserv
     name: restaurant-tagline-db
-    dockerImage: mysql:8.0 # Define qual imagem o Render deve baixar
+    runtime: image
+    image: mysql:8.0  # Define qual imagem o Render deve baixar
     plan: free
     envVars:
       - key: MYSQL_ROOT_PASSWORD
