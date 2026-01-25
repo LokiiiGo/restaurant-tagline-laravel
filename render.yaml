@@ -1,7 +1,7 @@
 services:
   - type: web
     name: restaurant-tagline
-    env: php
+    runtime: php
     buildCommand: composer install && npm install && npm run build
     startCommand: gunicorn app:app
     envVars:
@@ -10,7 +10,7 @@ services:
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
-        value: false
+        value: "false"
       - key: APP_URL
         value: https://restaurant-tagline.onrender.com
       - key: DB_CONNECTION
@@ -20,7 +20,7 @@ services:
 
   - type: pserv
     name: restaurant-tagline-db
-    env: mysql
+    runtime: mysql
     plan: free
     ipAllowList: []
     envVars:
