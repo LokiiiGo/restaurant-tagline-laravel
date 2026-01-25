@@ -3,7 +3,7 @@ services:
     name: restaurant-tagline
     runtime: image
     buildCommand: composer install && npm install && npm run build
-    startCommand: gunicorn app:app
+    startCommand: php artisan serve --host=0.0.0.0 --port=8080
     envVars:
       - key: APP_NAME
         value: restaurant-tagline
@@ -20,7 +20,7 @@ services:
 
   - type: pserv
     name: restaurant-tagline-db
-    runtime: image
+    runtime: mysql # image
     plan: free
     ipAllowList: []
     envVars:
@@ -30,6 +30,6 @@ services:
         value: restaurant_db
 
 databases:
-  - name: cadastro_usuarios
-    databaseName: cadastro_usuarios
+  - name: restaurant-tagline-db
+    databaseName: restaurant_db
     user: root
