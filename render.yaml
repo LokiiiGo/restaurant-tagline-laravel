@@ -28,7 +28,8 @@ services:
   - type: pserv
     name: restaurant-tagline-db
     runtime: image
-    image: mysql:8.0  # Define qual imagem o Render deve baixar
+    image:
+      url: mysql:8.0 # Define qual imagem o Render deve baixar
     plan: free
     envVars:
       - key: MYSQL_ROOT_PASSWORD
