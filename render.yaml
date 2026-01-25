@@ -2,7 +2,7 @@ services:
   # Serviço Web (Laravel/PHP via Docker)
   - type: web
     name: restaurant-tagline
-    runtime: docker # O Render lerá o seu Dockerfile automaticamente
+    runtime: docker # O Render irá ler Dockerfile automaticamente
     envVars:
       - key: APP_NAME
         value: restaurant-tagline
@@ -22,7 +22,6 @@ services:
       - key: DB_DATABASE
         value: cadastro_usuario
 
-  # Serviço de Banco de Dados (MySQL)
   - type: pserv
     name: restaurant-tagline-db
     runtime: image
