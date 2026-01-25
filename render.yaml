@@ -2,7 +2,7 @@ services:
   # Serviço Web (Laravel/PHP)
   - type: web
     name: restaurant-tagline
-    runtime: docker # Alterado para PHP para que ele execute o buildCommand
+    runtime: php
     buildCommand: composer install && npm install && npm run build
     startCommand: php artisan serve
     envVars:
