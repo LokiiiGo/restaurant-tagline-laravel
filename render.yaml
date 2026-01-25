@@ -3,7 +3,7 @@ services:
   - type: web
     name: restaurant-tagline
     runtime: docker
-    buildCommand: composer install && npm install && npm run build
+    buildCommand: docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
     startCommand: php artisan serve
     envVars:
       - key: PHP_VERSION
