@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: restaurant-tagline
+    env: php
+    buildCommand: composer install && npm install && npm run build
+    startCommand: gunicorn app:app
+    envVars:
+      - key: APP_NAME
+        value: restaurant-tagline
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        value: https://restaurant-tagline.onrender.com
+      - key: DB_CONNECTION
+        value: mysql
+      - key: CACHE_DRIVER
+        value: redis
+
+  - type: pserv
+    name: restaurant-tagline-db
+    env: mysql
+    plan: free
+    ipAllowList: []
+    envVars:
+      - key: MYSQL_ROOT_PASSWORD
+        generateValue: true
+      - key: MYSQL_DATABASE
+        value: restaurant_db
+
+databases:
+  - name: cadastro_usuarios
+    databaseName: cadastro_usuarios
+    user: root
