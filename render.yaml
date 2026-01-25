@@ -1,13 +1,9 @@
 services:
-  # Serviço Web (Laravel/PHP)
+  # Serviço Web (Laravel/PHP via Docker)
   - type: web
     name: restaurant-tagline
-    runtime: docker
-    buildCommand: docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
-    startCommand: php artisan serve
+    runtime: docker # O Render lerá o seu Dockerfile automaticamente
     envVars:
-      - key: PHP_VERSION
-        value: 8.2
       - key: APP_NAME
         value: restaurant-tagline
       - key: APP_ENV
@@ -31,7 +27,7 @@ services:
     name: restaurant-tagline-db
     runtime: image
     image:
-      url: mysql:8.0 # Define qual imagem o Render deve baixar
+      url: mysql:8.0
     plan: free
     envVars:
       - key: MYSQL_ROOT_PASSWORD
@@ -42,4 +38,4 @@ services:
 databases:
   - name: restaurant-tagline-db
     databaseName: cadastro_usuario
-    user: root
+    plan: free
