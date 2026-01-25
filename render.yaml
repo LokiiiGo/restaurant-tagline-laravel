@@ -1,7 +1,7 @@
 services:
   - type: web
     name: restaurant-tagline
-    runtime: php
+    runtime: image
     buildCommand: composer install && npm install && npm run build
     startCommand: gunicorn app:app
     envVars:
@@ -20,7 +20,7 @@ services:
 
   - type: pserv
     name: restaurant-tagline-db
-    runtime: mysql
+    runtime: image
     plan: free
     ipAllowList: []
     envVars:
