@@ -1,7 +1,8 @@
 services:
+  # Serviço Web (Laravel/PHP)
   - type: web
     name: restaurant-tagline
-    runtime: image
+    runtime: php # Alterado para PHP para que ele execute o buildCommand
     buildCommand: composer install && npm install && npm run build
     startCommand: php artisan serve
     envVars:
@@ -15,21 +16,27 @@ services:
         value: https://restaurant-tagline.onrender.com
       - key: DB_CONNECTION
         value: mysql
-      - key: CACHE_DRIVER
-        value: redis
+      - key: DB_HOST
+        fromService:
+          type: pserv
+          name: restaurant-tagline-db
+          property: host
+      - key: DB_DATABASE
+        value: cadastro_usuario
 
+  # Serviço de Banco de Dados (MySQL)
   - type: pserv
     name: restaurant-tagline-db
     runtime: image
+    image: mysql:8.0 # Define qual imagem o Render deve baixar
     plan: free
-    ipAllowList: []
     envVars:
       - key: MYSQL_ROOT_PASSWORD
         generateValue: true
       - key: MYSQL_DATABASE
-        value: restaurant_db
+        value: cadastro_usuario
 
 databases:
   - name: restaurant-tagline-db
-    databaseName: restaurant_db
+    databaseName: cadastro_usuario
     user: root
